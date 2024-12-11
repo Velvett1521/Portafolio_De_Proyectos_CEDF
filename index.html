@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Emmanuel D.F. Portafolio</title>
+    <style>
+        body {
+            background-color: #3c0062;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            scroll-behavior: smooth; /* Animación de desplazamiento suave */
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #6d00a1;
+            color: #7a4b8e;
+            padding-top: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            display: block;
+            color: #e6ccef;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 20% 0;
+            border-radius: 4px;
+            transition: color 0.3s ease, background-color 0.3s ease; /* Suaviza el cambio de color */
+        }
+
+        nav a.active {
+            color: aquamarine;
+            background-color: #af69cd; /* Sin fondo para resaltar solo el texto */
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        main {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        section {
+            height: 100vh;
+            margin-bottom: 50px;
+        }
+
+        section p {
+            margin-top: 0%;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                width: 150px;
+            }
+
+            main {
+                margin-left: 160px;
+            }
+        }
+
+        main hr {
+            background-color: #f1d7ff;
+            height: 2px;
+        }
+
+        .circulo {
+            width: 100px; /* Ancho del círculo */
+            height: 100px; /* Alto del círculo (igual al ancho para mantener la forma redonda) */
+            background-color: rgb(255, 36, 189); /* Color de relleno */
+            border-radius: 50%;
+            align-content: center;
+        }
+
+        .containerCV {
+            background-color: rgb(32, 248, 162);
+            width: 120px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: flex-start; /* Alinea los círculos horizontalmente */
+            align-items: center; /* Asegura que estén verticalmente alineados */
+            margin-top: 0%;
+            gap: 2%; /* Espacio entre los círculos */
+        }
+
+        .container2 {
+            margin-right: 40%;
+            margin-left: 5%;
+            display: flex;
+            justify-content: flex-start; /* Alinea los círculos horizontalmente */
+            align-items: center; /* Asegura que estén verticalmente alineados */
+            margin-top: 0%;
+            gap: 5%; /* Espacio entre los círculos */
+        }
+
+        .typing-text {
+            
+        }
+
+        .container_proyects {
+            display: flex;
+            margin-top: 5%;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background-color: #56008C;
+        }
+
+        .inner_container_proyect {
+            border: 2px solid aquamarine;
+            border-radius: 8px;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            text-align: center; 
+            margin: 20px; 
+            max-width: 300px;   
+            padding: 10px;
+        }
+        .inner_container_proyect img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="resources\avatar.png" height="100px" width="100px" style="margin-left: 10%;">
+        <a href="#section1">Carlos</a>
+        <a href="#section2">Sobre mí</a>
+        <a href="#section3">Portafolio</a>
+        <a href="#section4">Habilidades</a>
+        <a href="#section5">Contacto</a>
+    </nav>
+
+    <main>
+        <section id="section1">
+            <hr>
+            <p style="color: #ea00ff; font-size: 80px; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">CARLOS EDF</p>
+            <p class="typing-text" style="color: rgb(161, 230, 255); font-size: 20px;"></p>
+            <p style="color: rgb(161, 230, 255); font-size: 30px;"> Bienvenido a mi Portfolio web</p>
+            <p style="color: rgb(161, 230, 255); font-size: 15px;"> Ponte en contacto conmigo: </p>
+            <div class="containerCV">
+                <a href="CV.pdf" style="color: black; text-decoration: none;"> Descarga mi CV</a>
+            </div>
+            <div class="container">
+                <div id="Githublogo" class="circulo"; style="margin-top: 10%; margin-left: 10%;">
+                    <a href="github.com">
+                        <img src="resources/git.png" style="height: 100%; width: 100%;">
+                    </a>
+                </div>
+                <div id="Githublogo" class="circulo"; style="margin-top: 10%; margin-left: 40%;">
+                    <a href="linkedin.com">
+                        <img src="resources/linkedin.png" style="height: 50%; width: 50%; margin-left: 25%;">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="section2">
+            <hr>
+            <p style="font-size: 80px; color: #ea00ff; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">SOBRE MI</p>
+            <div class="container2">
+                <p style="color: rgb(161, 230, 255);">Empecé a programar a los 15 años, y desde entonces la tecnología se ha convertido en mi gran pasión. Manejo lenguajes como Java, Python, JavaScript y PHP, lo que me ha permitido crear desde páginas web y aplicaciones móviles hasta sistemas simples para ordenador. Me gusta trabajar tanto en equipo como de manera independiente, y mi capacidad para adaptarme a diferentes entornos y tecnologías ha sido clave para llevar a cabo cada proyecto con éxito.</p>
+            </div>
+            <p style="font-size: 30px; color: #ea00ff; text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;">Actualmente intento mejorar mis habilidades y embarcarme en el mundo laboral</p>
+            <div class="container2">
+                <p style="color: rgb(161, 230, 255); display: inline;">
+                    Conoce mi experiencia laboral completa en 
+                    <a href="https://linkedin.com" style="color: aquamarine; font-style: italic; text-decoration: none;">Linkedin</a>
+                </p>
+            </div>
+        </section>
+
+        <section id="section3">
+            <hr>
+            <p style="font-size: 50px; color: #ea00ff; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">PORTFOLIO</p>
+            <div class="container_proyects">
+                <div class="inner_container_proyect">
+                        <!-- Imagen principal -->
+                        <img src="resources/Garbage Hero/Portada_Garbage_Hero.jpg" alt="Portada Garbage Hero" style="width: 50%; border-radius: 10px;">
+                        
+                        <!-- Título del proyecto -->
+                        <p style="color: #af69cd; font-size: 14px; font-weight: bold; margin: 10px 0 5px;">Garbage Hero</p>
+                        
+                        <!-- Descripción del proyecto -->
+                        <p style="color: aquamarine; font-size: 12px; margin: 5px;">APK de un juego simple creado para Android con base en Java durante mis estudios en 2024</p>
+                        
+                        <!-- Botón de descarga -->
+                        <a href="resources/Garbage Hero/base.apk" download style="display: inline-block; text-decoration: none; margin-top: 10px;">
+                            <img src="resources/apklogo.png" alt="Descargar APK" style="width: 30px; height: auto;">
+                            <p style="color: aquamarine; font-size: 12px; margin: 5px;">Descargar APK</p>
+                        </a>
+                    </div>
+                <div class="inner_container_proyect">
+                    <!-- Imagen principal -->
+                    <img src="resources/Garbage Hero/Portada_Garbage_Hero.jpg" alt="Portada Garbage Hero" style="width: 50%; border-radius: 10px;">
+                        
+                    <!-- Título del proyecto -->
+                    <p style="color: #af69cd; font-size: 14px; font-weight: bold; margin: 10px 0 5px;">Garbage Hero</p>
+                    
+                    <!-- Descripción del proyecto -->
+                    <p style="color: aquamarine; font-size: 12px; margin: 5px;">APK de un juego simple creado para Android con base en Java durante mis estudios en 2024</p>
+                    
+                    <!-- Botón de descarga -->
+                    <a href="resources/Garbage Hero/base.apk" download style="display: inline-block; text-decoration: none; margin-top: 10px;">
+                        <img src="resources/apklogo.png" alt="Descargar APK" style="width: 30px; height: auto;">
+                        <p style="color: aquamarine; font-size: 12px; margin: 5px;">Descargar APK</p>
+                    </a>
+                </div>
+                <div class="inner_container_proyect">
+                    <!-- Imagen principal -->
+                    <img src="resources/Garbage Hero/Portada_Garbage_Hero.jpg" alt="Portada Garbage Hero" style="width: 50%; border-radius: 10px;">
+                        
+                    <!-- Título del proyecto -->
+                    <p style="color: #af69cd; font-size: 14px; font-weight: bold; margin: 10px 0 5px;">Garbage Hero</p>
+                    
+                    <!-- Descripción del proyecto -->
+                    <p style="color: aquamarine; font-size: 12px; margin: 5px;">APK de un juego simple creado para Android con base en Java durante mis estudios en 2024</p>
+                    
+                    <!-- Botón de descarga -->
+                    <a href="resources/Garbage Hero/base.apk" download style="display: inline-block; text-decoration: none; margin-top: 10px;">
+                        <img src="resources/apklogo.png" alt="Descargar APK" style="width: 30px; height: auto;">
+                        <p style="color: aquamarine; font-size: 12px; margin: 5px;">Descargar APK</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="section4" style="display: flex; flex-direction: row; align-items: flex-start; gap: 20px;">
+            <!-- Contenido de habilidades -->
+            <div style="flex: 2;">
+                <hr>
+                <p style="font-size: 80px; color: #ea00ff; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">SKILLS</p>
+                <p style="font-size: 30px; color: rgb(161, 230, 255);">Lenguajes de programación</p>
+                
+                <!-- Contenedor de imágenes de lenguajes -->
+                <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 20px; margin-left: 5%;">
+                    <img src="resources/java.jpg" alt="Skill 1" style="width: 50px; height: 50px; border-radius: 8px;">
+                    <img src="resources/js.png" alt="Skill 2" style="width: 50px; height: 50px; border-radius: 8px;">
+                    <img src="resources/python.png" alt="Skill 3" style="width: 50px; height: 50px; border-radius: 8px;">
+                    <img src="resources/HTML5.png" alt="Skill 4" style="width: 50px; height: 50px; border-radius: 8px;">
+                    <img src="resources/CSS.png" alt="Skill 5" style="width: 50px; height: 50px; border-radius: 8px;">
+                </div>
+        
+                <p style="font-size: 30px; margin-top: 20px; color: rgb(161, 230, 255);">Software familiar</p>
+                
+                <!-- Contenedor de imágenes de software -->
+                <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 20px; margin-left: 5%;">
+                    <img src="resources/godot.png" alt="Skill 6" style="width: 50px; height: 50px; border-radius: 8px;">
+                    <img src="resources/blender.png" alt="Skill 7" style="width: 50px; height: 50px; border-radius: 8px;">
+                    <img src="resources/VScode.png" alt="Skill 8" style="width: 50px; height: 50px; border-radius: 8px;">
+                    <img src="resources/Photoshop.png" alt="Skill 9" style="width: 50px; height: 50px; border-radius: 8px;">
+                    <img src="resources/unity.png" alt="Skill 10" style="width: 50px; height: 50px; border-radius: 8px;">
+                </div>
+            </div>
+        
+            <!-- Contenedor lateral derecho -->
+            <div style="flex: 1; text-align: left; padding: 10px; background-color: #af69cd; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); margin-top: 15%;">
+                <p style="font-size: 20px; color: rgb(161, 230, 255);">Estoy agregando y complementando mis conocimientos en:</p>
+                <ul style="color: rgb(32, 248, 162); font-size: 16px; line-height: 1.6; padding-left: 20px;">
+                    <li>Inteligencia Artificial</li>
+                    <li>Desarrollo de videojuegos</li>
+                    <li>Frameworks avanzados de JavaScript</li>
+                    <li>Optimización de bases de datos</li>
+                </ul>
+            </div>
+        </section>
+        
+
+        
+        
+
+        <section id="section5">
+            <hr>
+            <p style="font-size: 80px; color: #ea00ff; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;"> CONTACTAME! </p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 20px; margin-left: 5%;">
+                <img src="resources/gmail.png" style="width: 30px; height: 30px; border-radius: 8px;">
+                <p style="color: rgb(161, 230, 255); font-size: 25px;">Correo electronico 
+                    <a href="mailto:dfcarlos364gmail.com" style="color: rgb(32, 248, 162); font-style: italic;">Gmail</a>
+                </p>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 20px; margin-left: 5%;">
+                <img src="resources/whatsapp.png" style="width: 30px; height: 30px; border-radius: 8px;">
+                <p style="color: rgb(161, 230, 255); font-size: 25px;">Whatsapp 
+                    <p style="font-size: 25px; color: rgb(32, 248, 162); text-decoration: underline;font-style: italic;">749 XXX XXXX</p>
+                </p>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 20px; margin-left: 5%;">
+                <img src="resources/linkedin.png" style="width: 30px; height: 30px; border-radius: 8px;">
+                <p style="color: rgb(161, 230, 255); font-size: 25px;">Linkedin 
+                    <a href="linkedin.com" style="color: rgb(32, 248, 162); font-style: italic;">Linkedin</a>
+                </p>
+            </div>
+            
+            <p style="color: #ea00ff; font-size: 40px;">ESTE SITIO FUE DESARROLLADO CON:</p>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 20px; margin-left: 5%;">
+                <img src="resources/HTML5.png" style="width: 50px; height: 50px; border-radius: 8px;">
+                <img src="resources/CSS.png" style="width: 70px; height: 50px; border-radius: 8px;">
+                <img src="resources/js.png" style="width: 50px; height: 50px; border-radius: 8px;">
+                <img src="resources/VScode.png" style="width: 50px; height: 50px; border-radius: 8px;">
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const textElement = document.querySelector(".typing-text");
+            const text = "Construyendo mi futuro como ingeniero en sistemas computacionales";
+            let index = 0;
+
+            function type() {
+                if (index < text.length) {
+                    textElement.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(type, 100); // ajusta el tiempo para la velocidad de escritura
+                } else {
+                    textElement.style.borderRight = 'none'; // elimina el cursor parpadeante
+                }
+            }
+
+            type();
+        });
+        
+        // Detecta la sección activa
+        document.addEventListener("scroll", () => {
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll("nav a");
+
+            let activeSection = null;
+
+            sections.forEach((section) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    activeSection = section.id;
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").slice(1) === activeSection) {
+                    link.classList.add("active");
+                }
+            });
+        });
+
+        // Añade un comportamiento suave al hacer clic en los enlaces
+        document.querySelectorAll("nav a").forEach(link => {
+            link.addEventListener("click", (event) => {
+                event.preventDefault(); // Evita el comportamiento predeterminado
+                const targetId = link.getAttribute("href").slice(1);
+                const targetSection = document.getElementById(targetId);
+
+                // Desplazamiento suave usando JavaScript
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
+</body>
+</html>
