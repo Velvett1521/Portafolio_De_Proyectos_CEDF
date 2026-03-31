@@ -4,284 +4,661 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carlos Emmanuel D.F. Portafolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #3c0062;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #fff;
-            scroll-behavior: smooth; /* Animación de desplazamiento suave */
+        /* ── Variables ── */
+        :root {
+            --bg:        #1a0030;
+            --nav-bg:    #22004a;
+            --accent:    #ea00ff;
+            --accent2:   #00ffe7;
+            --text:      #e6ccef;
+            --card-bg:   #2d0052;
+            --purple-mid:#6d00a1;
+            --glow-pink: 0 0 12px #ea00ff88;
+            --glow-cyan: 0 0 12px #00ffe788;
         }
 
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            font-family: 'Rajdhani', sans-serif;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ── Scanline overlay ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,.07) 2px,
+                rgba(0,0,0,.07) 4px
+            );
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ── Nav ── */
         nav {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 200px;
             height: 100%;
-            background-color: #6d00a1;
-            color: #7a4b8e;
+            background: linear-gradient(180deg, #2d0052 0%, #1a0030 100%);
+            border-right: 1px solid #ea00ff33;
             padding-top: 20px;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav img {
+            margin: 0 auto 10px;
+            display: block;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            box-shadow: var(--glow-pink);
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
         }
 
         nav a {
             display: block;
-            color: #e6ccef;
+            width: 80%;
+            color: var(--text);
             text-decoration: none;
             padding: 10px 15px;
-            margin: 20% 0;
+            margin: 8px 0;
             border-radius: 4px;
-            transition: color 0.3s ease, background-color 0.3s ease; /* Suaviza el cambio de color */
-        }
-
-        nav a.active {
-            color: aquamarine;
-            background-color: #af69cd; /* Sin fondo para resaltar solo el texto */
-            font-weight: bold;
+            font-family: 'Orbitron', monospace;
+            font-size: 11px;
+            letter-spacing: 1px;
+            border: 1px solid transparent;
+            transition: color .3s, border-color .3s, box-shadow .3s, background .3s;
+            text-align: center;
         }
 
         nav a:hover {
-            background-color: #575757;
+            background: rgba(234,0,255,.1);
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: var(--glow-pink);
         }
 
+        nav a.active {
+            color: var(--accent2);
+            background: rgba(0,255,231,.08);
+            border-color: var(--accent2);
+            font-weight: 700;
+            box-shadow: var(--glow-cyan);
+        }
+
+        /* ── Main ── */
         main {
             margin-left: 220px;
-            padding: 20px;
+            padding: 20px 40px;
         }
 
         section {
-            height: 100vh;
+            min-height: 100vh;
             margin-bottom: 50px;
+            padding-top: 40px;
         }
 
-        section p {
-            margin-top: 0%;
-        }
-
-        @media (max-width: 600px) {
-            nav {
-                width: 150px;
-            }
-
-            main {
-                margin-left: 160px;
-            }
-        }
-
+        /* ── HR ── */
         main hr {
-            background-color: #f1d7ff;
+            border: none;
             height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
+            margin-bottom: 24px;
+            animation: hrGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes hrGlow {
+            from { box-shadow: 0 0 6px var(--accent); }
+            to   { box-shadow: 0 0 14px var(--accent2); }
+        }
+
+        /* ── Section headings ── */
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(36px, 6vw, 72px);
+            color: var(--accent);
+            text-shadow:
+                -1px -1px 0 #fff, 1px -1px 0 #fff,
+                -1px  1px 0 #fff, 1px  1px 0 #fff,
+                0 0 30px var(--accent);
+            letter-spacing: 4px;
+            margin-bottom: 16px;
+        }
+
+        /* ── Section 1 — Hero ── */
+        .hero-sub {
+            color: var(--accent2);
+            font-size: 18px;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+            min-height: 28px;
+        }
+
+        .hero-welcome {
+            color: var(--accent2);
+            font-size: 26px;
+            margin: 12px 0;
+        }
+
+        .hero-contact-label {
+            color: var(--accent2);
+            font-size: 14px;
+            margin: 16px 0 8px;
+            letter-spacing: 1px;
+        }
+
+        /* CV button */
+        .btn-cv {
+            display: inline-block;
+            padding: 10px 22px;
+            background: var(--accent2);
+            color: #000;
+            font-family: 'Orbitron', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            text-decoration: none;
+            box-shadow: var(--glow-cyan);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .btn-cv:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 0 22px var(--accent2);
+        }
+
+        /* Social circles */
+        .social-row {
+            display: flex;
+            gap: 24px;
+            margin-top: 32px;
+            align-items: center;
         }
 
         .circulo {
-            width: 100px; /* Ancho del círculo */
-            height: 100px; /* Alto del círculo (igual al ancho para mantener la forma redonda) */
-            background-color: rgb(255, 36, 189); /* Color de relleno */
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, var(--purple-mid), #1a0030);
             border-radius: 50%;
-            align-content: center;
-        }
-
-        .containerCV {
-            background-color: rgb(32, 248, 162);
-            width: 120px;
-            height: 40px;
-            border-radius: 10px;
+            border: 2px solid var(--accent);
+            box-shadow: var(--glow-pink);
             display: flex;
-            justify-content: flex-start;
             align-items: center;
-        }
-        
-        .container {
-            display: flex;
-            justify-content: flex-start; /* Alinea los círculos horizontalmente */
-            align-items: center; /* Asegura que estén verticalmente alineados */
-            margin-top: 0%;
-            gap: 2%; /* Espacio entre los círculos */
+            justify-content: center;
+            overflow: hidden;
+            transition: transform .3s, box-shadow .3s;
         }
 
-        .container2 {
-            margin-right: 40%;
+        .circulo:hover {
+            transform: scale(1.12);
+            box-shadow: 0 0 24px var(--accent);
+        }
+
+        .circulo img { width: 65%; height: 65%; object-fit: contain; }
+
+        /* ── Section 2 — Sobre mí ── */
+        .about-text {
+            color: var(--accent2);
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 60%;
+            margin-bottom: 20px;
+        }
+
+        .about-highlight {
+            font-size: 22px;
+            color: var(--accent);
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000,
+                         -1px  1px 0 #000, 1px  1px 0 #000;
+            max-width: 70%;
+            margin: 16px 0;
+            line-height: 1.4;
+        }
+
+        .about-linkedin {
+            color: var(--accent2);
+            font-size: 17px;
             margin-left: 5%;
-            display: flex;
-            justify-content: flex-start; /* Alinea los círculos horizontalmente */
-            align-items: center; /* Asegura que estén verticalmente alineados */
-            margin-top: 0%;
-            gap: 5%; /* Espacio entre los círculos */
         }
 
-        .typing-text {
-            
+        .about-linkedin a {
+            color: var(--accent2);
+            font-style: italic;
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent2);
+            transition: color .2s, border-color .2s;
         }
 
+        .about-linkedin a:hover { color: var(--accent); border-color: var(--accent); }
+
+        /* ── Section 3 — Portfolio ── */
         .container_proyects {
             display: flex;
-            margin-top: 5%;
-            justify-content: space-around;
-            align-items: center;
-            padding: 20px;
-            background-color: #56008C;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 32px;
+            justify-content: flex-start;
         }
 
         .inner_container_proyect {
-            border: 2px solid aquamarine;
-            border-radius: 8px;
-            padding: 10px;
-            justify-content: center;
+            background: var(--card-bg);
+            border: 1px solid var(--accent2);
+            border-radius: 12px;
+            padding: 16px;
+            max-width: 260px;
+            text-align: center;
+            box-shadow: 0 0 14px #00ffe722;
+            transition: transform .3s, box-shadow .3s;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            text-align: center; 
-            margin: 20px; 
-            max-width: 300px;   
-            padding: 10px;
+            gap: 8px;
         }
-        .inner_container_proyect img {
-            max-width: 100%;
-            max-height: 100%;
+
+        .inner_container_proyect:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 28px var(--accent2);
+        }
+
+        .inner_container_proyect img.cover {
+            width: 60%;
             border-radius: 8px;
+            border: 1px solid var(--purple-mid);
         }
+
+        .proj-title {
+            color: #cf9de8;
+            font-size: 13px;
+            font-weight: 700;
+            font-family: 'Orbitron', monospace;
+            letter-spacing: 1px;
+        }
+
+        .proj-desc {
+            color: var(--accent2);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .dl-link {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: transform .2s;
+        }
+
+        .dl-link:hover { transform: scale(1.1); }
+        .dl-link img { width: 28px; height: auto; }
+        .dl-link span { color: var(--accent2); font-size: 11px; margin-top: 4px; }
+
+        /* ── Section 4 — Skills ── */
+        #section4 {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 32px;
+        }
+
+        .skills-main { flex: 2; }
+
+        .skills-label {
+            font-size: 22px;
+            color: var(--accent2);
+            margin: 20px 0 12px;
+            font-family: 'Orbitron', monospace;
+            font-size: 15px;
+            letter-spacing: 2px;
+        }
+
+        .skill-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-left: 5%;
+        }
+
+        .skill-icons img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            border: 1px solid #ea00ff44;
+            transition: transform .25s, box-shadow .25s;
+            filter: brightness(.9);
+        }
+
+        .skill-icons img:hover {
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: var(--glow-pink);
+            filter: brightness(1.1);
+        }
+
+        .skills-side {
+            flex: 1;
+            background: linear-gradient(135deg, var(--purple-mid), #1a0030);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15%;
+            box-shadow: var(--glow-pink);
+        }
+
+        .skills-side p {
+            font-size: 16px;
+            color: var(--accent2);
+            margin-bottom: 12px;
+            font-family: 'Orbitron', monospace;
+            font-size: 12px;
+            letter-spacing: 1px;
+            line-height: 1.5;
+        }
+
+        .skills-side ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills-side li {
+            color: var(--accent2);
+            font-size: 15px;
+            padding: 6px 0;
+            border-bottom: 1px solid #00ffe722;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skills-side li::before {
+            content: '▶';
+            color: var(--accent);
+            font-size: 10px;
+        }
+
+        /* ── Section 5 — Contact ── */
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 16px 0 0 5%;
+        }
+
+        .contact-row img {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+        }
+
+        .contact-row p {
+            color: var(--accent2);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-row a {
+            color: var(--accent2);
+            font-style: italic;
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent2);
+            transition: color .2s, border-color .2s;
+        }
+
+        .contact-row a:hover { color: var(--accent); border-color: var(--accent); }
+
+        .built-with-label {
+            color: var(--accent);
+            font-family: 'Orbitron', monospace;
+            font-size: 22px;
+            margin: 40px 0 16px;
+            letter-spacing: 2px;
+        }
+
+        .built-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-left: 5%;
+        }
+
+        .built-icons img {
+            height: 50px;
+            border-radius: 8px;
+            border: 1px solid #ea00ff33;
+            filter: brightness(.85);
+            transition: filter .2s, transform .2s;
+        }
+
+        .built-icons img:hover { filter: brightness(1.2); transform: scale(1.08); }
+
+        /* ── Cursor blink ── */
+        .typing-text::after {
+            content: '|';
+            animation: blink .8s step-end infinite;
+            color: var(--accent2);
+        }
+
+        @keyframes blink {
+            0%,100% { opacity: 1; }
+            50%      { opacity: 0; }
+        }
+
+        /* ── Fade-in on scroll ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            nav { width: 150px; }
+            main { margin-left: 160px; padding: 20px; }
+            .about-text { max-width: 100%; }
+            #section4 { flex-direction: column; }
+            .skills-side { margin-top: 20px; }
+        }
+
+        /* ── Glitch effect on hero name ── */
+        .glitch {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            inset: 0;
+            font-family: inherit;
+            font-size: inherit;
+            color: var(--accent);
+            text-shadow: inherit;
+        }
+
+        .glitch::before {
+            color: var(--accent2);
+            clip-path: polygon(0 0, 100% 0, 100% 38%, 0 38%);
+            animation: glitch1 4s infinite;
+        }
+
+        .glitch::after {
+            color: var(--accent);
+            clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+            animation: glitch2 4s infinite;
+        }
+
+        @keyframes glitch1 {
+            0%,90%,100% { transform: translate(0); opacity: 0; }
+            92%          { transform: translate(-4px, 2px); opacity: .8; }
+            94%          { transform: translate(3px, -1px); opacity: .6; }
+            96%          { transform: translate(-2px, 1px); opacity: .7; }
+        }
+
+        @keyframes glitch2 {
+            0%,90%,100% { transform: translate(0); opacity: 0; }
+            91%          { transform: translate(4px, -2px); opacity: .7; }
+            93%          { transform: translate(-3px,  2px); opacity: .5; }
+            95%          { transform: translate(2px, -1px); opacity: .8; }
+        }
+
+        /* ── Particle bg canvas ── */
+        #bg-canvas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: .35;
+        }
+
+        main, nav { position: relative; z-index: 1; }
     </style>
 </head>
 <body>
+
+    <canvas id="bg-canvas"></canvas>
+
     <nav>
-        <img src="resources\avatar.png" height="100px" width="100px" style="margin-left: 10%;">
-        <a href="#section1">Carlos</a>
-        <a href="#section2">Sobre mí</a>
-        <a href="#section3">Portafolio</a>
-        <a href="#section4">Habilidades</a>
-        <a href="#section5">Contacto</a>
+        <img src="resources/avatar.png" alt="avatar">
+        <a href="#section1">CARLOS</a>
+        <a href="#section2">SOBRE MÍ</a>
+        <a href="#section3">PORTFOLIO</a>
+        <a href="#section4">SKILLS</a>
+        <a href="#section5">CONTACTO</a>
     </nav>
 
     <main>
+        <!-- ── Hero ── -->
         <section id="section1">
             <hr>
-            <p style="color: #ea00ff; font-size: 80px; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">CARLOS EDF</p>
-            <p class="typing-text" style="color: rgb(161, 230, 255); font-size: 20px;"></p>
-            <p style="color: rgb(161, 230, 255); font-size: 30px;"> Bienvenido a mi Portfolio web</p>
-            <p style="color: rgb(161, 230, 255); font-size: 15px;"> Ponte en contacto conmigo: </p>
-            <div class="containerCV">
-                <a href="CV.pdf" style="color: black; text-decoration: none;"> Descarga mi CV</a>
-            </div>
-            <div class="container">
-                <div id="Githublogo" class="circulo"; style="margin-top: 10%; margin-left: 10%;">
+            <p class="section-title glitch" data-text="CARLOS EDF" style="font-size: clamp(42px,7vw,90px);">CARLOS EDF</p>
+            <p class="typing-text hero-sub"></p>
+            <p class="hero-welcome">Bienvenido a mi Portfolio web</p>
+            <p class="hero-contact-label">Ponte en contacto conmigo:</p>
+            <a class="btn-cv" href="CV.pdf">DESCARGA MI CV</a>
+            <div class="social-row">
+                <div class="circulo">
                     <a href="github.com">
-                        <img src="resources/git.png" style="height: 100%; width: 100%;">
+                        <img src="resources/git.png" alt="GitHub">
                     </a>
                 </div>
-                <div id="Githublogo" class="circulo"; style="margin-top: 10%; margin-left: 40%;">
+                <div class="circulo">
                     <a href="linkedin.com">
-                        <img src="resources/linkedin.png" style="height: 50%; width: 50%; margin-left: 25%;">
+                        <img src="resources/linkedin.png" alt="LinkedIn">
                     </a>
                 </div>
             </div>
         </section>
 
+        <!-- ── Sobre mí ── -->
         <section id="section2">
             <hr>
-            <p style="font-size: 80px; color: #ea00ff; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">SOBRE MI</p>
-            <div class="container2">
-                <p style="color: rgb(161, 230, 255);">Empecé a programar a los 15 años, y desde entonces la tecnología se ha convertido en mi gran pasión. Manejo lenguajes como Java, Python, JavaScript y PHP, lo que me ha permitido crear desde páginas web y aplicaciones móviles hasta sistemas simples para ordenador. Me gusta trabajar tanto en equipo como de manera independiente, y mi capacidad para adaptarme a diferentes entornos y tecnologías ha sido clave para llevar a cabo cada proyecto con éxito.</p>
-            </div>
-            <p style="font-size: 30px; color: #ea00ff; text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;">Actualmente intento mejorar mis habilidades y embarcarme en el mundo laboral</p>
-            <div class="container2">
-                <p style="color: rgb(161, 230, 255); display: inline;">
-                    Conoce mi experiencia laboral completa en 
-                    <a href="https://www.linkedin.com/in/carlos-df-5752b0341?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" style="color: aquamarine; font-style: italic; text-decoration: none;">Linkedin</a>
-                </p>
-            </div>
+            <p class="section-title fade-in">SOBRE MI</p>
+            <p class="about-text fade-in" style="margin-left:5%;">
+                Empecé a programar a los 15 años, y desde entonces la tecnología se ha convertido en mi gran pasión.
+                Manejo lenguajes como Java, Python, JavaScript y PHP, lo que me ha permitido crear desde páginas web
+                y aplicaciones móviles hasta sistemas simples para ordenador. Me gusta trabajar tanto en equipo como
+                de manera independiente, y mi capacidad para adaptarme a diferentes entornos y tecnologías ha sido
+                clave para llevar a cabo cada proyecto con éxito.
+            </p>
+            <p class="about-highlight fade-in">
+                Actualmente intento mejorar mis habilidades y embarcarme en el mundo laboral
+            </p>
+            <p class="about-linkedin fade-in">
+                Conoce mi experiencia laboral completa en
+                <a href="https://www.linkedin.com/in/carlos-df-5752b0341?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Linkedin</a>
+            </p>
         </section>
 
+        <!-- ── Portfolio ── -->
         <section id="section3">
             <hr>
-            <p style="font-size: 50px; color: #ea00ff; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">PORTFOLIO</p>
+            <p class="section-title fade-in">PORTFOLIO</p>
             <div class="container_proyects">
-                <div class="inner_container_proyect">
-                        <!-- Imagen principal -->
-                        <img src="resources/Garbage Hero/Portada_Garbage_Hero.jpg" alt="Portada Garbage Hero" style="width: 50%; border-radius: 10px;">
-                        
-                        <!-- Título del proyecto -->
-                        <p style="color: #af69cd; font-size: 14px; font-weight: bold; margin: 10px 0 5px;">Garbage Hero</p>
-                        
-                        <!-- Descripción del proyecto -->
-                        <p style="color: aquamarine; font-size: 12px; margin: 5px;">APK de un juego simple creado para Android con base en Java durante mis estudios en 2024</p>
-                        
-                        <!-- Botón de descarga -->
-                        <a href="https://www.mediafire.com/file/pmtkvxz7xy74eyp/base.apk/file" download style="display: inline-block; text-decoration: none; margin-top: 10px;">
-                            <img src="resources/apklogo.png" alt="Descargar APK" style="width: 30px; height: auto;">
-                            <p style="color: aquamarine; font-size: 12px; margin: 5px;">Descargar APK</p>
-                        </a>
-                    </div>
-                <div class="inner_container_proyect">
-                    <!-- Imagen principal -->
-                    <img src="resources/NoSeVaGame/NoSeVaMorat_game_logo.jpeg" alt="No Se Va Morat Game" style="width: 50%; border-radius: 10px;">
-                        
-                    <!-- Título del proyecto -->
-                    <p style="color: #af69cd; font-size: 14px; font-weight: bold; margin: 10px 0 5px;">No Se Va Morat Game</p>
-                    
-                    <!-- Descripción del proyecto -->
-                    <p style="color: aquamarine; font-size: 12px; margin: 5px;">Juego creado en godot en base al video musical de la banda colombiana morat, dando vida al corto videojuego mostrado en dicho videoclip</p>
-                    
-                    <!-- Botón de descarga -->
-                    <a href="https://www.mediafire.com/file/crcsc54xn0y1n66/no-se-va-Morat-game.apk/file" download style="display: inline-block; text-decoration: none; margin-top: 10px;">
-                        <img src="resources/apklogo.png" alt="Descargar APK" style="width: 30px; height: auto;">
-                        <p style="color: aquamarine; font-size: 12px; margin: 5px;">Descargar APK</p>
-                    </a>
-                    <a href="https://www.mediafire.com/file/fvsrkez5lvv6t03/No_se_Va_Morat_game.exe/file" download style="display: inline-block; text-decoration: none; margin-top: 10px;">
-                        <img src="resources/exesinfondo.png" alt="Descargar .exe" style="width: 30px; height: auto;">
-                        <p style="color: aquamarine; font-size: 12px; margin: 5px;">Descargar .exe</p>
+                <div class="inner_container_proyect fade-in">
+                    <img class="cover" src="resources/Garbage Hero/Portada_Garbage_Hero.jpg" alt="Portada Garbage Hero">
+                    <p class="proj-title">Garbage Hero</p>
+                    <p class="proj-desc">APK de un juego simple creado para Android con base en Java durante mis estudios en 2024</p>
+                    <a class="dl-link" href="https://www.mediafire.com/file/pmtkvxz7xy74eyp/base.apk/file" download>
+                        <img src="resources/apklogo.png" alt="APK">
+                        <span>Descargar APK</span>
                     </a>
                 </div>
-                <div class="inner_container_proyect">
-                    <!-- Imagen principal -->
-                    <img src="resources/Garbage Hero/Portada_Garbage_Hero.jpg" alt="Portada Garbage Hero" style="width: 50%; border-radius: 10px;">
-                        
-                    <!-- Título del proyecto -->
-                    <p style="color: #af69cd; font-size: 14px; font-weight: bold; margin: 10px 0 5px;">Garbage Hero</p>
-                    
-                    <!-- Descripción del proyecto -->
-                    <p style="color: aquamarine; font-size: 12px; margin: 5px;">APK de un juego simple creado para Android con base en Java durante mis estudios en 2024</p>
-                    
-                    <!-- Botón de descarga -->
-                    <a href="resources/Garbage Hero/base.apk" download style="display: inline-block; text-decoration: none; margin-top: 10px;">
-                        <img src="resources/apklogo.png" alt="Descargar APK" style="width: 30px; height: auto;">
-                        <p style="color: aquamarine; font-size: 12px; margin: 5px;">Descargar APK</p>
+                <div class="inner_container_proyect fade-in">
+                    <img class="cover" src="resources/NoSeVaGame/NoSeVaMorat_game_logo.jpeg" alt="No Se Va Morat Game">
+                    <p class="proj-title">No Se Va Morat Game</p>
+                    <p class="proj-desc">Juego creado en Godot basado en el videoclip de la banda colombiana Morat, dando vida al videojuego mostrado en dicho clip</p>
+                    <a class="dl-link" href="https://www.mediafire.com/file/crcsc54xn0y1n66/no-se-va-Morat-game.apk/file" download>
+                        <img src="resources/apklogo.png" alt="APK">
+                        <span>Descargar APK</span>
+                    </a>
+                    <a class="dl-link" href="https://www.mediafire.com/file/fvsrkez5lvv6t03/No_se_Va_Morat_game.exe/file" download>
+                        <img src="resources/exesinfondo.png" alt=".exe">
+                        <span>Descargar .exe</span>
+                    </a>
+                </div>
+                <div class="inner_container_proyect fade-in">
+                    <img class="cover" src="resources/Garbage Hero/Portada_Garbage_Hero.jpg" alt="Portada Garbage Hero">
+                    <p class="proj-title">Garbage Hero</p>
+                    <p class="proj-desc">APK de un juego simple creado para Android con base en Java durante mis estudios en 2024</p>
+                    <a class="dl-link" href="resources/Garbage Hero/base.apk" download>
+                        <img src="resources/apklogo.png" alt="APK">
+                        <span>Descargar APK</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section id="section4" style="display: flex; flex-direction: row; align-items: flex-start; gap: 20px;">
-            <!-- Contenido de habilidades -->
-            <div style="flex: 2;">
+        <!-- ── Skills ── -->
+        <section id="section4">
+            <div class="skills-main">
                 <hr>
-                <p style="font-size: 80px; color: #ea00ff; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">SKILLS</p>
-                <p style="font-size: 30px; color: rgb(161, 230, 255);">Lenguajes de programación</p>
-                
-                <!-- Contenedor de imágenes de lenguajes -->
-                <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 20px; margin-left: 5%;">
-                    <img src="resources/java.jpg" alt="Skill 1" style="width: 50px; height: 50px; border-radius: 8px;">
-                    <img src="resources/js.png" alt="Skill 2" style="width: 50px; height: 50px; border-radius: 8px;">
-                    <img src="resources/python.png" alt="Skill 3" style="width: 50px; height: 50px; border-radius: 8px;">
-                    <img src="resources/HTML5.png" alt="Skill 4" style="width: 50px; height: 50px; border-radius: 8px;">
-                    <img src="resources/CSS.png" alt="Skill 5" style="width: 50px; height: 50px; border-radius: 8px;">
+                <p class="section-title fade-in">SKILLS</p>
+                <p class="skills-label">— Lenguajes de programación</p>
+                <div class="skill-icons fade-in">
+                    <img src="resources/java.jpg"   alt="Java">
+                    <img src="resources/js.png"     alt="JavaScript">
+                    <img src="resources/python.png" alt="Python">
+                    <img src="resources/HTML5.png"  alt="HTML5">
+                    <img src="resources/CSS.png"    alt="CSS3">
                 </div>
-        
-                <p style="font-size: 30px; margin-top: 20px; color: rgb(161, 230, 255);">Software familiar</p>
-                
-                <!-- Contenedor de imágenes de software -->
-                <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 20px; margin-left: 5%;">
-                    <img src="resources/godot.png" alt="Skill 6" style="width: 50px; height: 50px; border-radius: 8px;">
-                    <img src="resources/blender.png" alt="Skill 7" style="width: 50px; height: 50px; border-radius: 8px;">
-                    <img src="resources/VScode.png" alt="Skill 8" style="width: 50px; height: 50px; border-radius: 8px;">
-                    <img src="resources/Photoshop.png" alt="Skill 9" style="width: 50px; height: 50px; border-radius: 8px;">
-                    <img src="resources/unity.png" alt="Skill 10" style="width: 50px; height: 50px; border-radius: 8px;">
+                <p class="skills-label" style="margin-top:28px;">— Software familiar</p>
+                <div class="skill-icons fade-in">
+                    <img src="resources/godot.png"      alt="Godot">
+                    <img src="resources/blender.png"    alt="Blender">
+                    <img src="resources/VScode.png"     alt="VS Code">
+                    <img src="resources/Photoshop.png"  alt="Photoshop">
+                    <img src="resources/unity.png"      alt="Unity">
                 </div>
             </div>
-        
-            <!-- Contenedor lateral derecho -->
-            <div style="flex: 1; text-align: left; padding: 10px; background-color: #af69cd; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); margin-top: 15%;">
-                <p style="font-size: 20px; color: rgb(161, 230, 255);">Estoy agregando y complementando mis conocimientos en:</p>
-                <ul style="color: rgb(32, 248, 162); font-size: 16px; line-height: 1.6; padding-left: 20px;">
+            <div class="skills-side fade-in">
+                <p>ACTUALMENTE AMPLIANDO CONOCIMIENTOS EN:</p>
+                <ul>
                     <li>Inteligencia Artificial</li>
                     <li>Desarrollo de videojuegos</li>
                     <li>Frameworks avanzados de JavaScript</li>
@@ -289,101 +666,147 @@
                 </ul>
             </div>
         </section>
-        
 
-        
-        
-
+        <!-- ── Contacto ── -->
         <section id="section5">
             <hr>
-            <p style="font-size: 80px; color: #ea00ff; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;"> CONTACTAME! </p>
-            <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 20px; margin-left: 5%;">
-                <img src="resources/gmail.png" style="width: 30px; height: 30px; border-radius: 8px;">
-                <p style="color: rgb(161, 230, 255); font-size: 25px;">Correo electronico 
-                    <a href="mailto:dfcarlos364gmail.com" style="color: rgb(32, 248, 162); font-style: italic;">dfcarlos364gmail.com</a>
+            <p class="section-title fade-in">¡CONTÁCTAME!</p>
+
+            <div class="contact-row fade-in">
+                <img src="resources/gmail.png" alt="Gmail">
+                <p>Correo electrónico&nbsp;
+                    <a href="mailto:dfcarlos364@gmail.com">dfcarlos364@gmail.com</a>
                 </p>
             </div>
 
-            <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 20px; margin-left: 5%;">
-                <img src="resources/whatsapp.png" style="width: 30px; height: 30px; border-radius: 8px;">
-                <p style="color: rgb(161, 230, 255); font-size: 25px;">Whatsapp 
-                    <p style="font-size: 25px; color: rgb(32, 248, 162); text-decoration: underline;font-style: italic;">749 XXX XXXX</p>
+            <div class="contact-row fade-in">
+                <img src="resources/whatsapp.png" alt="WhatsApp">
+                <p>WhatsApp&nbsp;
+                    <span style="color:var(--accent2); font-style:italic;">749 XXX XXXX</span>
                 </p>
             </div>
 
-            <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 20px; margin-left: 5%;">
-                <img src="resources/linkedin.png" style="width: 30px; height: 30px; border-radius: 8px;">
-                <p style="color: rgb(161, 230, 255); font-size: 25px;">Linkedin 
-                    <a href="https://www.linkedin.com/in/carlos-df-5752b0341?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" style="color: rgb(32, 248, 162); font-style: italic;">Linkedin</a>
+            <div class="contact-row fade-in">
+                <img src="resources/linkedin.png" alt="LinkedIn">
+                <p>LinkedIn&nbsp;
+                    <a href="https://www.linkedin.com/in/carlos-df-5752b0341?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Linkedin</a>
                 </p>
             </div>
-            
-            <p style="color: #ea00ff; font-size: 40px;">ESTE SITIO FUE DESARROLLADO CON:</p>
 
-            <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 20px; margin-left: 5%;">
-                <img src="resources/HTML5.png" style="width: 50px; height: 50px; border-radius: 8px;">
-                <img src="resources/CSS.png" style="width: 70px; height: 50px; border-radius: 8px;">
-                <img src="resources/js.png" style="width: 50px; height: 50px; border-radius: 8px;">
-                <img src="resources/VScode.png" style="width: 50px; height: 50px; border-radius: 8px;">
+            <p class="built-with-label fade-in">ESTE SITIO FUE DESARROLLADO CON:</p>
+            <div class="built-icons fade-in">
+                <img src="resources/HTML5.png"  alt="HTML5">
+                <img src="resources/CSS.png"    alt="CSS">
+                <img src="resources/js.png"     alt="JS">
+                <img src="resources/VScode.png" alt="VS Code">
             </div>
         </section>
     </main>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const textElement = document.querySelector(".typing-text");
+        /* ── Typing animation ── */
+        document.addEventListener("DOMContentLoaded", function () {
+            const textEl = document.querySelector(".typing-text");
             const text = "Construyendo mi futuro como ingeniero en sistemas computacionales";
-            let index = 0;
+            let idx = 0;
 
             function type() {
-                if (index < text.length) {
-                    textElement.innerHTML += text.charAt(index);
-                    index++;
-                    setTimeout(type, 100); // ajusta el tiempo para la velocidad de escritura
+                if (idx < text.length) {
+                    textEl.textContent += text.charAt(idx++);
+                    setTimeout(type, 80);
                 } else {
-                    textElement.style.borderRight = 'none'; // elimina el cursor parpadeante
+                    textEl.style.borderRight = "none";
+                }
+            }
+            type();
+        });
+
+        /* ── Active nav on scroll ── */
+        document.addEventListener("scroll", () => {
+            const sections  = document.querySelectorAll("section");
+            const navLinks  = document.querySelectorAll("nav a");
+            let active = null;
+
+            sections.forEach(sec => {
+                const r = sec.getBoundingClientRect();
+                if (r.top <= 150 && r.bottom >= 150) active = sec.id;
+            });
+
+            navLinks.forEach(link => {
+                link.classList.toggle("active", link.getAttribute("href").slice(1) === active);
+            });
+        });
+
+        /* ── Smooth scroll ── */
+        document.querySelectorAll("nav a").forEach(link => {
+            link.addEventListener("click", e => {
+                e.preventDefault();
+                const target = document.getElementById(link.getAttribute("href").slice(1));
+                window.scrollTo({ top: target.offsetTop, behavior: "smooth" });
+            });
+        });
+
+        /* ── Fade-in on scroll (IntersectionObserver) ── */
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+        /* ── Particle background ── */
+        (function () {
+            const canvas = document.getElementById("bg-canvas");
+            const ctx    = canvas.getContext("2d");
+            let W, H, particles = [];
+
+            function resize() {
+                W = canvas.width  = window.innerWidth;
+                H = canvas.height = window.innerHeight;
+            }
+
+            function spawn(n) {
+                for (let i = 0; i < n; i++) {
+                    particles.push({
+                        x: Math.random() * W,
+                        y: Math.random() * H,
+                        r: Math.random() * 1.5 + .4,
+                        dx: (Math.random() - .5) * .3,
+                        dy: (Math.random() - .5) * .3,
+                        alpha: Math.random() * .6 + .2,
+                        color: Math.random() > .5 ? "#ea00ff" : "#00ffe7"
+                    });
                 }
             }
 
-            type();
-        });
-        
-        // Detecta la sección activa
-        document.addEventListener("scroll", () => {
-            const sections = document.querySelectorAll("section");
-            const navLinks = document.querySelectorAll("nav a");
-
-            let activeSection = null;
-
-            sections.forEach((section) => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= 150 && rect.bottom >= 150) {
-                    activeSection = section.id;
-                }
-            });
-
-            navLinks.forEach((link) => {
-                link.classList.remove("active");
-                if (link.getAttribute("href").slice(1) === activeSection) {
-                    link.classList.add("active");
-                }
-            });
-        });
-
-        // Añade un comportamiento suave al hacer clic en los enlaces
-        document.querySelectorAll("nav a").forEach(link => {
-            link.addEventListener("click", (event) => {
-                event.preventDefault(); // Evita el comportamiento predeterminado
-                const targetId = link.getAttribute("href").slice(1);
-                const targetSection = document.getElementById(targetId);
-
-                // Desplazamiento suave usando JavaScript
-                window.scrollTo({
-                    top: targetSection.offsetTop,
-                    behavior: "smooth"
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+                particles.forEach(p => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.globalAlpha = p.alpha;
+                    ctx.fill();
+                    p.x += p.dx;
+                    p.y += p.dy;
+                    if (p.x < 0) p.x = W;
+                    if (p.x > W) p.x = 0;
+                    if (p.y < 0) p.y = H;
+                    if (p.y > H) p.y = 0;
                 });
-            });
-        });
+                ctx.globalAlpha = 1;
+                requestAnimationFrame(draw);
+            }
+
+            window.addEventListener("resize", () => { resize(); });
+            resize();
+            spawn(90);
+            draw();
+        })();
     </script>
 </body>
 </html>
