@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="data:,">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carlos Emmanuel D.F. Portafolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -107,14 +108,20 @@
 
         /* ── Main ── */
         main {
-            margin-left: 220px;
-            padding: 20px 40px;
+            margin-left: 201px; /* nav es 200px + 1px border */
+            padding: 0 40px;
+            overflow: hidden;
         }
 
+        /* FIX ①②: section — quitar min-height:100vh y reemplazar por padding limpio */
         section {
-            min-height: 100vh;
-            margin-bottom: 50px;
-            padding-top: 40px;
+            min-height: auto;
+            padding: 60px 0 80px;
+        }
+
+        /* El hero arranca desde arriba — sin padding top extra */
+        #section1 {
+            padding: 20px 0 80px;
         }
 
         /* ── HR ── */
@@ -212,6 +219,15 @@
         .circulo:hover {
             transform: scale(1.12);
             box-shadow: 0 0 24px var(--accent);
+        }
+
+        /* FIX ⑤: los <a> dentro del círculo deben ser flex para centrar la imagen */
+        .circulo a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
         }
 
         .circulo img { width: 65%; height: 65%; object-fit: contain; }
@@ -312,8 +328,11 @@
         .dl-link img { width: 28px; height: auto; }
         .dl-link span { color: var(--accent2); font-size: 11px; margin-top: 4px; }
 
-        /* ── Section 4 — Skills ── */
-        #section4 {
+        /* FIX ①: section4 ya NO tiene display:flex — lo lleva el wrapper interno */
+        #section4 { }
+
+        /* FIX ①: wrapper interno con el flex para skills-main + skills-side */
+        #section4 .skills-wrapper {
             display: flex;
             flex-direction: row;
             align-items: flex-start;
@@ -323,11 +342,10 @@
         .skills-main { flex: 2; }
 
         .skills-label {
-            font-size: 22px;
+            font-size: 15px;
             color: var(--accent2);
             margin: 20px 0 12px;
             font-family: 'Orbitron', monospace;
-            font-size: 15px;
             letter-spacing: 2px;
         }
 
@@ -359,12 +377,12 @@
             border: 1px solid var(--accent);
             border-radius: 12px;
             padding: 20px;
-            margin-top: 15%;
+            /* FIX ③: margin-top fijo en vez de 15% relativo */
+            margin-top: 70px;
             box-shadow: var(--glow-pink);
         }
 
         .skills-side p {
-            font-size: 16px;
             color: var(--accent2);
             margin-bottom: 12px;
             font-family: 'Orbitron', monospace;
@@ -480,7 +498,8 @@
             nav { width: 150px; }
             main { margin-left: 160px; padding: 20px; }
             .about-text { max-width: 100%; }
-            #section4 { flex-direction: column; }
+            /* En móvil el skills-wrapper vuelve a columna */
+            #section4 .skills-wrapper { flex-direction: column; }
             .skills-side { margin-top: 20px; }
         }
 
@@ -536,7 +555,8 @@
             opacity: .35;
         }
 
-        main, nav { position: relative; z-index: 1; }
+        main { position: relative; z-index: 1; }
+        nav { z-index: 100; }  /* NO tocar position del nav, ya es fixed */
     </style>
 </head>
 <body>
@@ -563,12 +583,12 @@
             <a class="btn-cv" href="CV.pdf">DESCARGA MI CV</a>
             <div class="social-row">
                 <div class="circulo">
-                    <a href="github.com">
+                    <a href="https://github.com">
                         <img src="resources/git.png" alt="GitHub">
                     </a>
                 </div>
                 <div class="circulo">
-                    <a href="linkedin.com">
+                    <a href="https://linkedin.com">
                         <img src="resources/linkedin.png" alt="LinkedIn">
                     </a>
                 </div>
@@ -635,35 +655,38 @@
         </section>
 
         <!-- ── Skills ── -->
+        <!-- FIX ④: el flex ahora va en .skills-wrapper, no en el <section> directamente -->
         <section id="section4">
-            <div class="skills-main">
-                <hr>
-                <p class="section-title fade-in">SKILLS</p>
-                <p class="skills-label">— Lenguajes de programación</p>
-                <div class="skill-icons fade-in">
-                    <img src="resources/java.jpg"   alt="Java">
-                    <img src="resources/js.png"     alt="JavaScript">
-                    <img src="resources/python.png" alt="Python">
-                    <img src="resources/HTML5.png"  alt="HTML5">
-                    <img src="resources/CSS.png"    alt="CSS3">
+            <div class="skills-wrapper">
+                <div class="skills-main">
+                    <hr>
+                    <p class="section-title fade-in">SKILLS</p>
+                    <p class="skills-label">— Lenguajes de programación</p>
+                    <div class="skill-icons fade-in">
+                        <img src="resources/java.jpg"   alt="Java">
+                        <img src="resources/js.png"     alt="JavaScript">
+                        <img src="resources/python.png" alt="Python">
+                        <img src="resources/HTML5.png"  alt="HTML5">
+                        <img src="resources/CSS.png"    alt="CSS3">
+                    </div>
+                    <p class="skills-label" style="margin-top:28px;">— Software familiar</p>
+                    <div class="skill-icons fade-in">
+                        <img src="resources/godot.png"      alt="Godot">
+                        <img src="resources/blender.png"    alt="Blender">
+                        <img src="resources/VScode.png"     alt="VS Code">
+                        <img src="resources/Photoshop.png"  alt="Photoshop">
+                        <img src="resources/unity.png"      alt="Unity">
+                    </div>
                 </div>
-                <p class="skills-label" style="margin-top:28px;">— Software familiar</p>
-                <div class="skill-icons fade-in">
-                    <img src="resources/godot.png"      alt="Godot">
-                    <img src="resources/blender.png"    alt="Blender">
-                    <img src="resources/VScode.png"     alt="VS Code">
-                    <img src="resources/Photoshop.png"  alt="Photoshop">
-                    <img src="resources/unity.png"      alt="Unity">
+                <div class="skills-side fade-in">
+                    <p>ACTUALMENTE AMPLIANDO CONOCIMIENTOS EN:</p>
+                    <ul>
+                        <li>Inteligencia Artificial</li>
+                        <li>Desarrollo de videojuegos</li>
+                        <li>Frameworks avanzados de JavaScript</li>
+                        <li>Optimización de bases de datos</li>
+                    </ul>
                 </div>
-            </div>
-            <div class="skills-side fade-in">
-                <p>ACTUALMENTE AMPLIANDO CONOCIMIENTOS EN:</p>
-                <ul>
-                    <li>Inteligencia Artificial</li>
-                    <li>Desarrollo de videojuegos</li>
-                    <li>Frameworks avanzados de JavaScript</li>
-                    <li>Optimización de bases de datos</li>
-                </ul>
             </div>
         </section>
 
@@ -746,7 +769,7 @@
             });
         });
 
-        /* ── Fade-in on scroll (IntersectionObserver) ── */
+        /* FIX ⑥: Fade-in — threshold más bajo + forzar visible en elementos ya en viewport */
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -754,9 +777,20 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+        /* Forzar visible inmediato en elementos que ya están en el viewport al cargar */
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                const r = el.getBoundingClientRect();
+                if (r.top < window.innerHeight) {
+                    el.classList.add('visible');
+                    observer.unobserve(el);
+                }
+            });
+        });
 
         /* ── Particle background ── */
         (function () {
@@ -808,5 +842,6 @@
             draw();
         })();
     </script>
+
 </body>
 </html>
